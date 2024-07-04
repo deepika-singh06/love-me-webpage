@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #4da6f3;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #faf9f8f7;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s;
+        }
+        button.no {
+            background-color: #f44336;
+            position: absolute;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button.no:hover {
+            background-color: #e53935;
+        }
+        .flower {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+        }
+        .petal {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            border-radius: 50%;
+            animation: grow 2s infinite alternate;
+        }
+        .petal:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .petal:nth-child(2) {
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+        }
+        .petal:nth-child(3) {
+            top: 50%;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+        .petal:nth-child(4) {
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+        @keyframes grow {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="flower">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+    </div>
+    <div class="container">
+        <h1>Do You Love Me?</h1>
+        <div class="button-container">
+            <button onclick="showMessage()">Yes</button>
+            <button class="no" onmouseenter="moveButton()">No</button>
+        </div>
+    </div>
+    <script>
+        function showMessage() {
+            alert('I love you too!');
+        }
+
+        function moveButton() {
+            const noButton = document.querySelector('button.no');
+            const maxWidth = 800;
+            const maxHeight = 600;
+            const x = Math.random() * maxWidth;
+            const y = Math.random() * maxHeight;
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
+
